@@ -1,21 +1,18 @@
-# React + Feature-Sliced Design | Pure Template
+## Description
 
-## Folders description
+[Task description](https://docviewer.yandex.ru/view/1797643866/?page=1&*=Pyjgdha7S7Wsq1NkkuTT%2F%2FfteYN7InVybCI6InlhLW1haWw6Ly8xODgwMjUyODQ0NDI3MTg2MzYvMS4yIiwidGl0bGUiOiLQotC10YHRgtC%2B0LLQvtC1INC30LDQtNCw0L3QuNC1IChmcm9udCkudHh0Iiwibm9pZnJhbWUiOmZhbHNlLCJ1aWQiOiIxNzk3NjQzODY2IiwidHMiOjE3MzMyMTE4NDYzNTIsInl1IjoiNDE5MzgxNjUyMTcwOTEzMTg3NiJ9)
 
-| Folder       | Description        |
-| ------------ | ------------------ |
-| public       | Public files       |
-| src/app      | App FSD Layer      |
-| src/pages    | Pages FSD Layer    |
-| src/widgets  | Widgets FSD Layer  |
-| src/features | Features FSD Layer |
-| src/entities | Entities FSD Layer |
-| src/shared   | Shared FSD Layer   |
+[Layout](https://www.figma.com/design/3BvdZRWkYNtNqZjRBmQraS/Test?node-id=6-905&node-type=frame&t=FDirMczvfuQa55sA-0)
 
-This template uses such development assistants
+Deadline ~ 1 week
 
-- Eslint
-- Prettier
+```sh
+git clone https://github.com/zebpaa/test_IQ_Group.git
+```
 
-If you don't need it, you can disable it at any time by removing the
-dependency from your _package.json_ and _.\*rc_ file.
+## Development command
+
+```sh
+npm install
+npm run dev
+```
