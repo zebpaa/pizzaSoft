@@ -8,7 +8,11 @@ Deadline ~ 1 week
 
 ```sh
 git clone https://github.com/zebpaa/test_IQ_Group.git
+cd test_IQ_Group/
+code .
 ```
+
+After opening in IDE
 
 ## Development command
 
@@ -16,4 +20,11 @@ git clone https://github.com/zebpaa/test_IQ_Group.git
 npm install
 npm run dev
 ```
+
+## Build command
+
+```sh
+npm run build
+```
+
 # test_IQ_Group
