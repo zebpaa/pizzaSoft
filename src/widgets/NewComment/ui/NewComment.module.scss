@@ -1,0 +1,33 @@
+.comment {
+	&__container {
+		width: 1131px;
+		height: 142px;
+		background: #d9d9d9;
+	}
+	&__input {
+		&_wrapper {
+			display: flex;
+			justify-content: center;
+		}
+		width: 1069px;
+		height: 55px;
+		padding: 9px 17px 10px 17px;
+		background: #ffffff;
+		font-size: 24px;
+		line-height: 29px;
+		color: #313131;
+		margin-bottom: 28px;
+	}
+	&__heading {
+		&_wrapper {
+			display: flex;
+			justify-content: center;
+			padding-top: 13px;
+			padding-bottom: 13px;
+		}
+		width: 164px;
+		height: 35px;
+		font-size: 24px;
+		line-height: 29px;
+	}
+}

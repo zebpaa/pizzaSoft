@@ -1,0 +1,56 @@
+.container {
+	height: 1080px;
+	background: #d9d9d9;
+	padding: 34px 36px 38px 37px;
+
+	&__content {
+		width: 1847px;
+		height: 933px;
+		background: #fff;
+		padding: 27px 40px 113px 36px;
+	}
+
+	&__heading {
+		width: 300px;
+		height: 44px;
+		font-size: 36px;
+		font-weight: 400;
+		line-height: 43.57px;
+		text-align: left;
+		margin: 0;
+		margin-bottom: 13px;
+	}
+
+	&__newComment {
+		margin-bottom: 18px;
+	}
+
+	&__dealInfo {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__inputs {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__comments {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__buttonGroup {
+		margin-top: 26px;
+		display: flex;
+		justify-content: center;
+
+		&.hidden {
+			display: none;
+		}
+
+		&.visible {
+			display: flex;
+		}
+	}
+}

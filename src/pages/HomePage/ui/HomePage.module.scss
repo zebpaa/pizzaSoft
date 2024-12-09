@@ -1,65 +1,72 @@
-.homepage {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
-	gap: 1rem;
+.content {
+	height: 1080px;
+	background: #d9d9d9;
+	padding: 64px 35px 0px 35px;
 
-	height: 100vh;
+	&__createButton {
+		cursor: pointer;
+	}
 
-	color: #c7d0cc;
+	&__buttonGroup {
+		margin: 43px 0;
+		display: flex;
+	}
 
-	background: #000;
+	&__tabList {
+		width: 100%;
+		border-collapse: collapse;
 
-	font-family: Roboto, sans-serif;
-	font-size: 2vw;
-	font-weight: bold;
-}
-
-.path {
-	font-style: italic;
-}
-
-.font {
-	font-size: 5vw;
-}
-
-.hint {
-	padding: 0.5rem;
-
-	pointer-events: none;
-
-	border: rgb(199 208 204 / 5%) 1px solid;
-	border-radius: 15px;
-
-	font-size: 1vw;
-}
-
-.testHint {
-	margin: 0 30px;
-}
-
-.link {
-	transition: 0.3s;
-	animation: shine 4s linear infinite;
-
-	color: #000;
-	background: linear-gradient(
-		to right,
-		#020024 10%,
-		#5b0979 40%,
-		#5b0979 60%,
-		#020024 80%
-	);
-	background-clip: text;
-	background-size: 200% auto;
-
-	font-size: 5vw;
-	-webkit-text-fill-color: transparent;
-
-	@keyframes shine {
-		to {
-			background-position: 200% center;
+		th {
+			font-weight: normal;
 		}
+		tr {
+			height: 85px;
+			text-align: left;
+			border: solid 1px #fff;
+			background-color: #f0f0f0;
+		}
+	}
+}
+
+.table__id {
+	width: 148px;
+	height: 85px;
+	text-align: center;
+}
+
+.table__name {
+	width: 653px;
+	height: 85px;
+	&__th {
+		text-align: center;
+	}
+	&__td {
+		text-align-last: left;
+		padding-left: 6.5%;
+	}
+}
+
+.table__status {
+	width: 647px;
+	height: 85px;
+
+	&__th {
+		text-align: center;
+	}
+	&__td {
+		text-align-last: left;
+		padding-left: 15.5%;
+	}
+}
+
+.table__creationDate {
+	width: 393px;
+	height: 85px;
+	&__th {
+		text-align: center;
+	}
+	&__td {
+		text-align-last: left;
+		padding-left: 10%;
 	}
 }

@@ -1,0 +1,96 @@
+.customInput {
+	margin-bottom: 27px;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 21px;
+	}
+
+	&__title {
+		height: 29px;
+		margin-left: 2px;
+		font-size: 24px;
+		line-height: 29px;
+	}
+
+	&__inputContainer {
+		position: relative;
+	}
+
+	&__dropdown {
+		background: rgb(237, 237, 237);
+		width: 571px;
+		height: 48px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 9px 17px;
+		cursor: pointer;
+		border: none;
+
+		span {
+			font-size: 24px;
+		}
+	}
+
+	&__options {
+		box-shadow: 0px 4px 4px 0px #00000040;
+		width: 571px;
+		height: 162px;
+		background-color: #d9d9d9;
+		position: absolute;
+		z-index: 10;
+		overflow-y: auto;
+		&::-webkit-scrollbar {
+			width: 19px;
+			height: 156px;
+		}
+		&::-webkit-scrollbar-track {
+			background: #cecece; /* цвет дорожки */
+			margin-right: 2px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: #979797; /* цвет плашки */
+			margin-right: 2px;
+		}
+	}
+
+	&__scrollContainer {
+		width: 19px;
+		height: 156px;
+	}
+
+	&__option {
+		width: 537px;
+		height: 40px;
+		background-color: #b6b6b6;
+		margin: 3px 27px 3px 7px;
+		display: flex;
+		align-items: center;
+		padding-left: 10px;
+		font-size: 24px;
+		&:hover {
+			background-color: #cac8c8;
+		}
+	}
+
+	&__button {
+		border: none;
+		padding: 0;
+		width: 83px;
+		height: 18px;
+		font-size: 16px;
+		line-height: 19px;
+		color: #000000;
+	}
+
+	.dropdownIcon {
+		transition: transform 0.3s ease;
+	}
+
+	.open {
+		transform: rotate(180deg);
+	}
+}
