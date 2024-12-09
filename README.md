@@ -18,6 +18,15 @@ code .
 
 After opening in IDE
 
+## Screenshots
+
+![Screenshot_1](https://github.com/user-attachments/assets/94a0c963-6b84-4f77-8830-6023e56b7cc8)
+![Screenshot_2](https://github.com/user-attachments/assets/821b18bb-0db6-4d19-a042-7f9bb2602efe)
+![Screenshot_3](https://github.com/user-attachments/assets/245a56fc-ab0a-47a8-b93a-a32018c6aaad)
+![Screenshot_4](https://github.com/user-attachments/assets/131f1a9b-ffef-45b0-9344-f51962b7aab8)
+![Screenshot_5](https://github.com/user-attachments/assets/c43e07e4-9b37-48ea-a8cb-3cc39f47eb1b)
+![Screenshot_6](https://github.com/user-attachments/assets/3c6c443a-64d6-4a3a-bf52-1018bab0fa87)
+
 ## Development command
 
 ```sh
