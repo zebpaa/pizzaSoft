@@ -7,8 +7,8 @@ import { useNavigate } from "react-router"
 import { addDeals, selectors } from "@entities/dealsSlice"
 import { deals as mockDeals } from "@pages/index"
 
-import { Button } from "../../../shared"
-import { Modal } from "../../../widgets"
+import { Button } from "../../shared"
+import { Modal } from "../../widgets"
 import cls from "./HomePage.module.scss"
 
 const HomePage: React.FC = () => {
@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
 	const deals = useSelector(selectors.selectAll)
 
 	const handleClick = (deal: Deal) => () => {
-		navigate("/deal", { state: deal })
+		navigate(`/deal/${deal.id}`, { state: deal })
 	}
 
 	return (
@@ -77,11 +77,17 @@ const HomePage: React.FC = () => {
 								return completedStatuses.includes(d.status)
 							})
 							.map((deal) => (
-								<tr key={deal.id} onClick={handleClick(deal)}>
+								<tr
+									key={deal.id}
+									onClick={handleClick(deal)}
+									style={{ cursor: "pointer" }}
+								>
 									<td className={cls.table__id}>{deal.id}</td>
 									<td className={cls.table__name__td}>{deal.name}</td>
 									<td className={cls.table__status__td}>{deal.status}</td>
-									<td className={cls.table__creationDate__td}>{deal.creationDate}</td>
+									<td className={cls.table__creationDate__td}>
+										{deal.creationDate}
+									</td>
 								</tr>
 							))}
 					</tbody>

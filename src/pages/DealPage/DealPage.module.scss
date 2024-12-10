@@ -1,10 +1,10 @@
 .container {
-	height: 1080px;
+	height: 100%;
+	min-height: 1440px;
 	background: #d9d9d9;
 	padding: 34px 36px 38px 37px;
 
 	&__content {
-		width: 1847px;
 		height: 933px;
 		background: #fff;
 		padding: 27px 40px 113px 36px;
@@ -36,6 +36,8 @@
 	}
 
 	&__comments {
+		width: 100%;
+		padding-left: 63px;
 		display: flex;
 		flex-direction: column;
 	}

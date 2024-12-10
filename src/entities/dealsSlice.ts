@@ -1,3 +1,4 @@
+import type { RootState } from "."
 import type { Deal } from "@pages/index"
 
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
@@ -22,6 +23,8 @@ const dealsSlice = createSlice({
 
 export const { addDeal, addDeals, updateDeal } = dealsSlice.actions
 
-export const selectors = dealsAdapter.getSelectors((state: any) => state.deals)
+export const selectors = dealsAdapter.getSelectors(
+	(state: RootState) => state.deals,
+)
 
 export default dealsSlice.reducer

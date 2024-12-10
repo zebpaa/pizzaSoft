@@ -2,7 +2,7 @@ import type { Deal } from "@pages/index"
 
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useLocation } from "react-router"
+import { useLocation, useParams } from "react-router"
 
 import { selectors, updateDeal } from "@entities/dealsSlice"
 import { Button } from "@shared/index"
@@ -17,7 +17,10 @@ import {
 import cls from "./DealPage.module.scss"
 
 const DealPage: React.FC = () => {
+	const { id } = useParams()
+	console.log("id: ", id)
 	const location = useLocation()
+	console.log("location: ", location)
 	const dispatch = useDispatch()
 	const deals: Deal[] = useSelector(selectors.selectAll)
 	const deal = deals.filter((d) => d.id === location.state.id)[0]
@@ -54,15 +57,15 @@ const DealPage: React.FC = () => {
 
 		console.log("dropdownValue: ", dropdownValue)
 		console.log("deal.status: ", dropdownValue)
-		if (
-			dropdownValue === deal.status &&
-			phone === deal.phone &&
-			budget === deal.budget &&
-			fullName === deal.fullName &&
-			creationDate === deal.creationDate
-		) {
-			setStatus("idle")
-		}
+		// if (
+		// 	dropdownValue === deal.status &&
+		// 	phone === deal.phone &&
+		// 	budget === deal.budget &&
+		// 	fullName === deal.fullName &&
+		// 	creationDate === deal.creationDate
+		// ) {
+		// 	setStatus("idle")
+		// }
 	}, [status, dropdownValue, phone, budget, fullName, creationDate, deal])
 
 	const handleDropdownValueChange = (newValue: any) => {

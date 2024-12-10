@@ -1,5 +1,5 @@
-import DealPage from "./DealPage/ui/DealPage"
-import HomePage from "./HomePage/ui/HomePage"
+import DealPage from "./DealPage/DealPage"
+import HomePage from "./HomePage/HomePage"
 
 export type Deal = {
 	id: number

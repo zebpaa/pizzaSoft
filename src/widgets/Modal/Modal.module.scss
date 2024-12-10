@@ -18,6 +18,8 @@
 	height: 304px;
 	padding: 21px 23px 18px 27px;
 	box-shadow: 4px 4px 4px 0px #00000040;
+	overflow-y: auto;
+	max-height: 80vh;
 }
 
 .modal__header {

@@ -5,7 +5,7 @@ import cls from "./Header.module.scss"
 const Header: React.FC = () => {
 	return (
 		<div className={cls.wrapper}>
-			<a href="">Заголовок</a>
+			<Link to="/">Заголовок</Link>
 			<ul>
 				<Link to="/">сделки</Link>
 			</ul>

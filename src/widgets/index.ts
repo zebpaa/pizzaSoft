@@ -1,10 +1,11 @@
-import CommentsList from "./CommentsList/ui/CommentsList"
-import CustomDropDown from "./CustomDropDown/ui/CustomDropDown"
-import CustomInput from "./CustomInput/ui/CustomInput"
-import Header from "./Header/ui/Header"
-import Modal from "./Modal/ui/Modal"
-import NewComment from "./NewComment/ui/NewComment"
-import ProgressBar from "./ProgressBar/ui/ProgressBar"
+import CommentsList from "./CommentsList/CommentsList"
+import CustomDropDown from "./CustomDropDown/CustomDropDown"
+import CustomInput from "./CustomInput/CustomInput"
+import Header from "./Header/Header"
+import Layout from "./Layout/Layout"
+import Modal from "./Modal/Modal"
+import NewComment from "./NewComment/NewComment"
+import ProgressBar from "./ProgressBar/ProgressBar"
 
 export {
 	Header,
@@ -14,4 +15,5 @@ export {
 	CommentsList,
 	CustomInput,
 	CustomDropDown,
+	Layout,
 }

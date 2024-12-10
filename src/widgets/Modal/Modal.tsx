@@ -2,6 +2,8 @@ import type { Deal } from "@pages/index"
 import type { EntityId } from "@reduxjs/toolkit"
 import type { FormEvent } from "react"
 
+import { useEffect } from "react"
+import { createPortal } from "react-dom"
 import { useDispatch } from "react-redux"
 
 import { addDeal } from "@entities/dealsSlice"
@@ -17,6 +19,19 @@ type ModalProps = {
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onHide, deals }: ModalProps) => {
 	const dispatch = useDispatch()
+
+	// Отключаем прокрутку страницы
+	useEffect(() => {
+		if (isOpen) {
+			document.body.style.overflow = "hidden"
+		} else {
+			document.body.style.overflow = "auto"
+		}
+
+		return () => {
+			document.body.style.overflow = "auto"
+		}
+	}, [isOpen])
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
@@ -49,9 +64,23 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onHide, deals }: ModalProps) => {
 		return null
 	}
 
-	return (
-		<div className={cls.modal__overlay}>
-			<div className={cls.modal__container}>
+	const handleOverlayClick = () => {
+		onHide(false)
+	}
+
+	const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
+		e.stopPropagation() // Останавливаем всплытие события, чтобы клик внутри контейнера не закрывал модалку
+	}
+
+	const modalRoot = document.getElementById("modal-root")
+
+	if (!modalRoot) {
+		return null
+	}
+
+	return createPortal(
+		<div className={cls.modal__overlay} onClick={handleOverlayClick}>
+			<div className={cls.modal__container} onClick={handleContainerClick}>
 				<div className={cls.modal__header}>
 					<h5 className={cls.modal__title}>Создать сделку</h5>
 				</div>
@@ -78,7 +107,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onHide, deals }: ModalProps) => {
 					</div>
 				</form>
 			</div>
-		</div>
+		</div>,
+		modalRoot,
 	)
 }
 

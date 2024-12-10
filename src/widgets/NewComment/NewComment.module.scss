@@ -1,6 +1,6 @@
 .comment {
 	&__container {
-		width: 1131px;
+		width: 100%;
 		height: 142px;
 		background: #d9d9d9;
 	}
@@ -9,7 +9,7 @@
 			display: flex;
 			justify-content: center;
 		}
-		width: 1069px;
+		width: calc(100% - 62px);
 		height: 55px;
 		padding: 9px 17px 10px 17px;
 		background: #ffffff;

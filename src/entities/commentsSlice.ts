@@ -1,3 +1,4 @@
+import type { RootState } from "."
 import type { Comment } from "@pages/index"
 
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
@@ -17,6 +18,8 @@ const commentsSlice = createSlice({
 
 export const { addComment, addComments } = commentsSlice.actions
 
-export const selectors = commentsAdapter.getSelectors((state: any) => state.comments)
+export const selectors = commentsAdapter.getSelectors(
+	(state: RootState) => state.comments,
+)
 
 export default commentsSlice.reducer
