@@ -1,0 +1,9 @@
+.comments {
+	width: 100%;
+	padding-left: 63px;
+	display: flex;
+	flex-direction: column;
+	&__newComment {
+		margin-bottom: 18px;
+	}
+}

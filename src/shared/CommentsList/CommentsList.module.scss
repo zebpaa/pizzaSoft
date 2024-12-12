@@ -3,7 +3,6 @@
 	height: 100%;
 	background: #d9d9d9;
 	padding: 23px 31px 23px 30px;
-	// max-width: calc(100% - 65.83px);
 	&__list {
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -36,7 +35,6 @@
 		margin-bottom: 6px;
 		margin-right: auto;
 		margin-left: auto;
-		// max-width: calc(100% - 65.83px);
 		overflow: hidden; /* Скрыть переполнение */
 		text-overflow: ellipsis; /* Добавить многоточие при переполнении */
 		white-space: nowrap; /* Запретить перенос строк */
@@ -45,19 +43,3 @@
 		}
 	}
 }
-
-// @media (max-width: 2560px) {
-// 	.commentsList {
-//     &__item{
-//       max-width: 1716px;
-//     }
-// 	}
-// }
-
-// @media (max-width: 1920px) {
-// 	.commentsList {
-//     &__item{
-//       max-width: 1069px;
-//     }
-// 	}
-// }

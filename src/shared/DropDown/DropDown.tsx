@@ -1,11 +1,10 @@
 import type { Deal } from "@pages/index"
 import type { SetStateAction } from "react"
 
-import { useEffect, useState } from "react"
+import { useDropDown } from "./hook/useDropDown"
+import cls from "./DropDown.module.scss"
 
-import cls from "./CustomDropDown.module.scss"
-
-interface CustomDropDownProps {
+interface DropDownProps {
 	name: string
 	placeholder: string
 	id: keyof Deal
@@ -17,7 +16,7 @@ interface CustomDropDownProps {
 	status: string
 }
 
-const CustomDropdown: React.FC<CustomDropDownProps> = ({
+const DropDown: React.FC<DropDownProps> = ({
 	name,
 	value,
 	onChange,
@@ -25,42 +24,15 @@ const CustomDropdown: React.FC<CustomDropDownProps> = ({
 	deal,
 	id,
 }) => {
-	const [isEditable, setIsEditable] = useState(false)
-	const [isOpen, setIsOpen] = useState(false)
-	const [inputValue, setInputValue] = useState(value)
-
-	const options = ["Новый", "В работе", "Почти завершен", "Успешно", "Провал"]
-
-	const toggleDropdown = () => {
-		setIsOpen((prev) => !prev)
-	}
-
-	const handleOptionClick = (option: string) => {
-		if (onChange) {
-			onChange(option)
-		}
-		setInputValue(option)
-		setIsOpen(false)
-	}
-
-	useEffect(() => {
-		if (status === "idle") {
-			setInputValue(deal[id])
-			setIsEditable(false)
-		}
-	}, [deal, id, status])
-
-	const toggleEditMode = () => {
-		if (isEditable) {
-			setInputValue(deal[id])
-			if (onChange) {
-				onChange(deal[id])
-			}
-		} else {
-			setInputValue(value)
-		}
-		setIsEditable(!isEditable)
-	}
+	const {
+		toggleEditMode,
+		isEditable,
+		toggleDropdown,
+		inputValue,
+		isOpen,
+		handleOptionClick,
+		options,
+	} = useDropDown({ value, onChange, status, deal, id })
 
 	return (
 		<div className={cls.customInput}>
@@ -119,4 +91,4 @@ const CustomDropdown: React.FC<CustomDropDownProps> = ({
 	)
 }
 
-export default CustomDropdown
+export default DropDown

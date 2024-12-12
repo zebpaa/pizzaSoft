@@ -5,6 +5,8 @@
 	padding: 34px 36px 38px 37px;
 
 	&__content {
+		position: relative;
+
 		height: 933px;
 		background: #fff;
 		padding: 27px 40px 113px 36px;
@@ -21,38 +23,8 @@
 		margin-bottom: 13px;
 	}
 
-	&__newComment {
-		margin-bottom: 18px;
-	}
-
 	&__dealInfo {
 		display: flex;
 		justify-content: space-between;
-	}
-
-	&__inputs {
-		display: flex;
-		flex-direction: column;
-	}
-
-	&__comments {
-		width: 100%;
-		padding-left: 63px;
-		display: flex;
-		flex-direction: column;
-	}
-
-	&__buttonGroup {
-		margin-top: 26px;
-		display: flex;
-		justify-content: center;
-
-		&.hidden {
-			display: none;
-		}
-
-		&.visible {
-			display: flex;
-		}
 	}
 }

@@ -1,11 +1,10 @@
 import type { Deal } from "@pages/index"
 import type { SetStateAction } from "react"
 
-import { useEffect, useState } from "react"
+import { useInput } from "./hook/useInput"
+import cls from "./Input.module.scss"
 
-import cls from "./CustomInput.module.scss"
-
-interface CustomInputProps {
+interface InputProps {
 	name: string
 	type?: string
 	placeholder: string
@@ -18,7 +17,7 @@ interface CustomInputProps {
 	status: string
 }
 
-const CustomInput: React.FC<CustomInputProps> = ({
+const Input: React.FC<InputProps> = ({
 	name,
 	type = "text",
 	placeholder,
@@ -27,37 +26,14 @@ const CustomInput: React.FC<CustomInputProps> = ({
 	onChange,
 	deal,
 	status,
-}: CustomInputProps) => {
-	const [inputValue, setInputValue] = useState(value)
-	const [isEditable, setIsEditable] = useState(false)
-
-	useEffect(() => {
-		if (status === "idle") {
-			setInputValue(deal[id])
-			setIsEditable(false)
-		}
-	}, [deal, id, status])
-
-	const toggleEditMode = () => {
-		if (isEditable) {
-			setInputValue(deal[id])
-			if (onChange) {
-				onChange(deal[id])
-			}
-		} else {
-			setInputValue(value)
-		}
-		setIsEditable(!isEditable)
-	}
-
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-	) => {
-		setInputValue(e.target.value)
-		if (onChange) {
-			onChange(e.target.value)
-		}
-	}
+}: InputProps) => {
+	const { toggleEditMode, isEditable, handleChange, inputValue } = useInput({
+		value,
+		onChange,
+		deal,
+		status,
+		id,
+	})
 
 	return (
 		<div className={cls.customInput}>
@@ -89,4 +65,4 @@ const CustomInput: React.FC<CustomInputProps> = ({
 	)
 }
 
-export default CustomInput
+export default Input
