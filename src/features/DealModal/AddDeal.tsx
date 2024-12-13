@@ -1,19 +1,9 @@
 import type { Deal } from "@pages/index"
 
-import { useForm } from "react-hook-form"
-import { useDispatch } from "react-redux"
-
-import { yupResolver } from "@hookform/resolvers/yup"
-import * as yup from "yup"
-
-import { addDeal } from "@entities/dealsSlice"
 import { Button, ModalContainer } from "@shared/index"
 
+import { useAddDeal } from "./hook/useAddDeal"
 import cls from "./AddDeal.module.scss"
-
-interface IFormInput {
-	name: string
-}
 
 type AddDealProps = {
 	isOpen: boolean
@@ -26,45 +16,10 @@ const AddDeal: React.FC<AddDealProps> = ({
 	isOpen,
 	onHide,
 }: AddDealProps) => {
-	const schema = yup.object({
-		name: yup
-			.string()
-			.trim()
-			.required("Это обязательное поле")
-			.min(3, "Минимальная длина: 3")
-			.max(20, "Максимальная длина: 20")
-			.notOneOf(
-				deals.map((d) => d.name),
-				"Такое название сделки уже есть",
-			),
+	const { handleSubmit, register, errors, handleClick, onSubmit } = useAddDeal({
+		deals,
+		onHide,
 	})
-
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm<IFormInput>({
-		resolver: yupResolver(schema),
-	})
-
-	const onSubmit = ({ name }: IFormInput) => {
-		const newId =
-			deals.length > 0 ? Math.max(...deals.map((d) => Number(d.id))) + 1 : 1
-
-		const newDeal: Deal = {
-			id: newId,
-			name,
-			status: "Новый",
-			creationDate: String(new Date().toLocaleDateString()),
-			phone: "",
-			budget: "",
-			fullName: "",
-		}
-		dispatch(addDeal(newDeal))
-		onHide(false)
-	}
-
-	const dispatch = useDispatch()
 
 	return (
 		<ModalContainer isOpen={isOpen} onHide={onHide} title="Создать сделку">
@@ -83,7 +38,7 @@ const AddDeal: React.FC<AddDealProps> = ({
 					<Button type="submit" variant="active" width="290">
 						Создать
 					</Button>
-					<div onClick={() => onHide(false)}>
+					<div onClick={handleClick}>
 						<Button variant="cancel" width="290">
 							Отмена
 						</Button>

@@ -56,30 +56,20 @@ const DealsTable = ({ deals, activeTab }: DealsTableProps) => {
 		>
 			<thead>
 				<tr>
-					<th
-						ref={idRef}
-						className={cls.table__id}
-						style={{ paddingLeft: `${paddingLeft.id}px` }}
-					>
+					<th ref={idRef} style={{ paddingLeft: `${paddingLeft.id}px` }}>
 						id
 					</th>
-					<th
-						ref={nameRef}
-						className={cls.table__name__th}
-						style={{ paddingLeft: `${paddingLeft.name}px` }}
-					>
+					<th ref={nameRef} style={{ paddingLeft: `${paddingLeft.name}px` }}>
 						Название
 					</th>
 					<th
 						ref={statusRef}
-						className={cls.table__status__th}
 						style={{ paddingLeft: `${paddingLeft.status}px` }}
 					>
 						Статус
 					</th>
 					<th
 						ref={creationDateRef}
-						className={cls.table__creationDate__th}
 						style={{ paddingLeft: `${paddingLeft.creationDate}px` }}
 					>
 						Дата создания
@@ -100,28 +90,14 @@ const DealsTable = ({ deals, activeTab }: DealsTableProps) => {
 							onClick={handleClick(deal)}
 							style={{ cursor: "pointer" }}
 						>
-							<td
-								className={cls.table__id}
-								style={{ paddingLeft: `${paddingLeft.id}px` }}
-							>
-								{deal.id}
-							</td>
-							<td
-								className={cls.table__name__td}
-								style={{ paddingLeft: `${paddingLeft.name}px` }}
-							>
+							<td style={{ paddingLeft: `${paddingLeft.id}px` }}>{deal.id}</td>
+							<td style={{ paddingLeft: `${paddingLeft.name}px` }}>
 								{deal.name}
 							</td>
-							<td
-								className={cls.table__status__td}
-								style={{ paddingLeft: `${paddingLeft.status}px` }}
-							>
+							<td style={{ paddingLeft: `${paddingLeft.status}px` }}>
 								{deal.status}
 							</td>
-							<td
-								className={cls.table__creationDate__td}
-								style={{ paddingLeft: `${paddingLeft.creationDate}px` }}
-							>
+							<td style={{ paddingLeft: `${paddingLeft.creationDate}px` }}>
 								{deal.creationDate}
 							</td>
 						</tr>
