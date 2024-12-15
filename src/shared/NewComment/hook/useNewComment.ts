@@ -1,4 +1,4 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../../pages"
 
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
-import { addComment, selectors } from "@entities/commentsSlice"
+import { addComment, selectors } from "../../../entities/commentsSlice"
 
 interface FormInput {
 	name: string

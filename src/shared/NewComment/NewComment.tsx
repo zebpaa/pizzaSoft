@@ -1,4 +1,4 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../pages"
 
 import { useNewComments } from "./hook/useNewComment"
 import cls from "./NewComment.module.scss"
@@ -8,15 +8,7 @@ interface NewCommentProps {
 }
 
 const NewComment: React.FC<NewCommentProps> = ({ deal }: NewCommentProps) => {
-	const {
-		// inputValue,
-		// handleInputChange,
-		// handleKeyDown,
-		handleSubmit,
-		register,
-		errors,
-		onSubmit,
-	} = useNewComments(deal)
+	const { handleSubmit, register, errors, onSubmit } = useNewComments(deal)
 
 	return (
 		<div className={cls.comment__container}>
@@ -32,9 +24,6 @@ const NewComment: React.FC<NewCommentProps> = ({ deal }: NewCommentProps) => {
 						type="text"
 						placeholder="Введите название"
 						autoComplete="onChange"
-						// value={inputValue}
-						// onChange={handleInputChange}
-						// onKeyDown={handleKeyDown}
 					/>
 				</div>
 				{errors.name && (

@@ -1,5 +1,5 @@
 import type { RootState } from "."
-import type { Deal } from "@pages/index"
+import type { Deal } from "../pages"
 
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
 

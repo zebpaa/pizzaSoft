@@ -1,11 +1,10 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from ".."
 
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 
-import { selectors } from "@entities/dealsSlice"
-import { Comments, DealInfoChanger, ProgressBar } from "@widgets/index"
-
+import { selectors } from "../../entities/dealsSlice"
+import { Comments, DealInfoChanger, ProgressBar } from "../../widgets"
 import cls from "./DealPage.module.scss"
 
 const DealPage: React.FC = () => {

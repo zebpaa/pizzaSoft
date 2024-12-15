@@ -1,4 +1,4 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../pages"
 
 import { useEffect, useRef, useState } from "react"
 

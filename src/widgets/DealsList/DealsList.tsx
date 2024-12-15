@@ -1,5 +1,4 @@
-import { AddDeal } from "@features/index"
-
+import { AddDeal } from "../../features"
 import { Button, DealsTable } from "../../shared"
 import { useDealsList } from "./hook/useDealsList"
 import cls from "./DealsList.module.scss"

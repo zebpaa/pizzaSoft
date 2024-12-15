@@ -1,5 +1,5 @@
 import type { RootState } from "."
-import type { Comment } from "@pages/index"
+import type { Comment } from "../pages"
 
 import { createEntityAdapter, createSlice } from "@reduxjs/toolkit"
 

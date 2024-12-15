@@ -1,7 +1,6 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../pages"
 
-import { Button, ModalContainer } from "@shared/index"
-
+import { Button, ModalContainer } from "../../shared"
 import { useAddDeal } from "./hook/useAddDeal"
 import cls from "./AddDeal.module.scss"
 

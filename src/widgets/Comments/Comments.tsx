@@ -1,7 +1,6 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../pages"
 
-import { CommentsList, NewComment } from "@shared/index"
-
+import { CommentsList, NewComment } from "../../shared"
 import cls from "./Comments.module.scss"
 
 interface CommentsProps {

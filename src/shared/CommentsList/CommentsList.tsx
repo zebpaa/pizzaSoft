@@ -1,11 +1,10 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../pages"
 
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-import { addComments, selectors } from "@entities/commentsSlice"
-import { comments as mockComments } from "@pages/index"
-
+import { addComments, selectors } from "../../entities/commentsSlice"
+import { comments as mockComments } from "../../pages"
 import cls from "./CommentsList.module.scss"
 
 interface CommentsListProps {

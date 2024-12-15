@@ -1,4 +1,4 @@
-import { DealsList } from "@widgets/index"
+import { DealsList } from "../../widgets"
 
 const HomePage: React.FC = () => {
 	return (

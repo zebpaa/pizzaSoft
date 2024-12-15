@@ -1,7 +1,6 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../pages"
 
-import { Button, DropDown, Input } from "@shared/index"
-
+import { Button, DropDown, Input } from "../../shared"
 import { useDealInfoChanger } from "./hook/useDealInfoChanger"
 import cls from "./DealInfoChanger.module.scss"
 

@@ -1,9 +1,9 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../../pages"
 
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 
-import { updateDeal } from "@entities/dealsSlice"
+import { updateDeal } from "../../../entities/dealsSlice"
 
 export const useDealInfoChanger = (deal: Deal) => {
 	const [status, setStatus] = useState("idle") // "changed"

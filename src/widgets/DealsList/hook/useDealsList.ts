@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-import { addDeals, selectors } from "@entities/dealsSlice"
-import { deals as mockDeals } from "@pages/index"
+import { addDeals, selectors } from "../../../entities/dealsSlice"
+import { deals as mockDeals } from "../../../pages"
 
 export const useDealsList = () => {
 	const [isOpen, setIsOpen] = useState(false)

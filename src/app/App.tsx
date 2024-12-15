@@ -4,9 +4,9 @@ import { PersistGate } from "redux-persist/integration/react"
 
 import { persistStore } from "redux-persist"
 
-import store from "@entities/index"
-import { DealPage, HomePage } from "@pages/index"
-import { Layout } from "@widgets/index"
+import store from "../entities"
+import { DealPage, HomePage } from "../pages"
+import { Layout } from "../widgets"
 
 const persistor = persistStore(store)
 

@@ -1,4 +1,4 @@
-import type { Deal } from "@pages/index"
+import type { Deal } from "../../pages"
 import type { SetStateAction } from "react"
 
 import { useInput } from "./hook/useInput"
