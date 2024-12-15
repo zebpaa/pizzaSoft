@@ -37,7 +37,6 @@ const DealInfoChanger: React.FC<DealInfoChangerProps> = ({
 					onChange={handleDropdownValueChange}
 					deal={deal}
 					status={status}
-					placeholder={""}
 				/>
 				<Input
 					name="Номер телефона"

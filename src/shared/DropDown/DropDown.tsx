@@ -6,7 +6,6 @@ import cls from "./DropDown.module.scss"
 
 interface DropDownProps {
 	name: string
-	placeholder: string
 	id: keyof Deal
 	value: string | number
 	onChange?: (
