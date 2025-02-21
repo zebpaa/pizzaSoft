@@ -1,6 +1,5 @@
 import DealInfo from "./DealInfo/DealInfo"
-import Home from "./Home/Home";
-
+import Home from "./Home/Home"
 
 export type Deal = {
 	id: number
