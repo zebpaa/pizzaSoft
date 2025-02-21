@@ -19,12 +19,12 @@ export const useNewComments = (deal: Deal) => {
 		name: yup
 			.string()
 			.trim()
-			.required("Это обязательное поле")
-			.min(3, "Минимальная длина: 3")
-			.max(20, "Максимальная длина: 20")
+			.required("Обязательное поле")
+			.min(3, "Мин. длина: 3")
+			.max(20, "Макс. длина: 20")
 			.notOneOf(
 				comments.map((c) => c.name),
-				"Такой комментарий уже есть",
+				"Такой уже есть",
 			),
 	})
 

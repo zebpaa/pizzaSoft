@@ -5,7 +5,7 @@ import { PersistGate } from "redux-persist/integration/react"
 import { persistStore } from "redux-persist"
 
 import store from "../entities"
-import { DealPage, HomePage } from "../pages"
+import { DealInfo, Home } from "../pages"
 import { Layout } from "../widgets"
 
 const persistor = persistStore(store)
@@ -16,8 +16,8 @@ function App() {
 			<PersistGate loading={null} persistor={persistor}>
 				<Routes>
 					<Route path="/" element={<Layout />}>
-						<Route index element={<HomePage />} />
-						<Route path="deal/:id" element={<DealPage />} />
+						<Route index element={<Home />} />
+						<Route path="deal/:id" element={<DealInfo />} />
 					</Route>
 				</Routes>
 			</PersistGate>

@@ -1,0 +1,45 @@
+.container {
+	&__inputs {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 571px;
+	}
+
+	&__buttonGroup {
+		position: absolute;
+		margin-top: 26px;
+		display: flex;
+		bottom: 20px;
+		right: 0;
+		left: 0;
+		justify-content: center;
+		display: flex;
+	}
+}
+
+.input {
+	border: 1px solid black;
+}
+
+.lastInput {
+	margin-bottom: 0px;
+}
+
+@media (max-width: 1040px) {
+	.container {
+		&__inputs {
+			max-width: none;
+		}
+	}
+}
+
+@media (max-width: 728px) {
+	.container__buttonGroup {
+		margin-left: 36px;
+		margin-right: 40px;
+		button {
+			font-size: 30px;
+		}
+	}
+}

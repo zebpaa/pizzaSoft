@@ -8,6 +8,9 @@ button {
 	font-weight: 400;
 	font-size: 36px;
 	line-height: 44px;
+	&:disabled {
+		opacity: 0.8;
+	}
 }
 
 .primary {
@@ -26,6 +29,6 @@ button {
 }
 
 .cancel {
-	background: #E6E6E6;
+	background: #e6e6e6;
 	width: 290px;
 }

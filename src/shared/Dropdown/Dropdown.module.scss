@@ -1,5 +1,5 @@
 .customInput {
-	margin-bottom: 27px;
+	margin-bottom: 22px;
 
 	&__header {
 		display: flex;
@@ -21,7 +21,6 @@
 
 	&__dropdown {
 		background: rgb(237, 237, 237);
-		width: 571px;
 		height: 48px;
 		display: flex;
 		justify-content: space-between;
@@ -37,6 +36,7 @@
 	&__options {
 		box-shadow: 0px 4px 4px 0px #00000040;
 		width: 571px;
+		width: 100%;
 		height: 162px;
 		background-color: #d9d9d9;
 		position: absolute;
@@ -62,7 +62,6 @@
 	}
 
 	&__option {
-		width: 537px;
 		height: 40px;
 		background-color: #b6b6b6;
 		margin: 3px 27px 3px 7px;

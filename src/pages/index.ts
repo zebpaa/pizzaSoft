@@ -1,5 +1,6 @@
-import DealPage from "./DealPage/DealPage"
-import HomePage from "./HomePage/HomePage"
+import DealInfo from "./DealInfo/DealInfo"
+import Home from "./Home/Home";
+
 
 export type Deal = {
 	id: number
@@ -141,4 +142,4 @@ export const comments: Comment[] = [
 	},
 ]
 
-export { HomePage, DealPage }
+export { Home, DealInfo }

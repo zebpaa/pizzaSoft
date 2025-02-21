@@ -4,10 +4,10 @@ import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 
 import { selectors } from "../../entities/dealsSlice"
-import { Comments, DealInfoChanger, ProgressBar } from "../../widgets"
-import cls from "./DealPage.module.scss"
+import { Changer, Comments, ProgressBar } from "../../widgets"
+import cls from "./DealInfo.module.scss"
 
-const DealPage: React.FC = () => {
+const DealInfo: React.FC = () => {
 	const { id } = useParams()
 
 	const deals: Deal[] = useSelector(selectors.selectAll)
@@ -24,7 +24,7 @@ const DealPage: React.FC = () => {
 				<ProgressBar status={deal.status} />
 
 				<div className={cls.container__dealInfo}>
-					<DealInfoChanger deal={deal} />
+					<Changer deal={deal} />
 					<Comments deal={deal} />
 				</div>
 			</div>
@@ -32,4 +32,4 @@ const DealPage: React.FC = () => {
 	)
 }
 
-export default DealPage
+export default DealInfo

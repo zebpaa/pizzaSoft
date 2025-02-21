@@ -1,44 +1,38 @@
 import type { Deal } from "../../pages"
-import type { SetStateAction } from "react"
+import type { FieldError } from "react-hook-form"
 
-import { useInput } from "./hook/useInput"
+import { useFormContext } from "react-hook-form"
+
 import cls from "./Input.module.scss"
 
 interface InputProps {
-	name: string
+	title: string
 	type?: string
 	placeholder: string
 	id: keyof Deal
-	value: string | number
-	onChange?: (
-		value: string | number | SetStateAction<string | undefined>,
-	) => void
-	deal: Deal
-	status: string
+	isEditable: any
+	toggleEditMode: any
 }
 
 const Input: React.FC<InputProps> = ({
-	name,
+	title,
 	type = "text",
 	placeholder,
 	id,
-	value,
-	onChange,
-	deal,
-	status,
+	isEditable,
+	toggleEditMode,
 }: InputProps) => {
-	const { toggleEditMode, isEditable, handleChange, inputValue } = useInput({
-		value,
-		onChange,
-		deal,
-		status,
-		id,
-	})
+	const {
+		register,
+		formState: { errors },
+	} = useFormContext()
+
+	const error = errors[id]
 
 	return (
 		<div className={cls.customInput}>
 			<div className={cls.customInput__header}>
-				<h3 className={cls.customInput__title}>{name}</h3>
+				<h3 className={cls.customInput__title}>{title}</h3>
 				<button
 					className={cls.customInput__button}
 					type="button"
@@ -49,17 +43,19 @@ const Input: React.FC<InputProps> = ({
 			</div>
 			<div className={cls.customInput__inputContainer}>
 				<input
-					className={cls.customInput__input}
-					autoComplete="onChange"
+					className={`${cls.customInput__input} ${errors[id]?.message ? cls.invalid : ""}`}
+					autoComplete="on"
 					id={id}
-					name={id}
+					{...register(id)}
 					style={{ background: isEditable ? "#C2C2C2" : "#ededed" }}
 					type={type}
 					placeholder={placeholder}
 					disabled={!isEditable}
-					onChange={handleChange}
-					value={inputValue}
 				/>
+
+				{error && (
+					<p className={cls.feedback}>{(error as FieldError).message}</p>
+				)}
 			</div>
 		</div>
 	)

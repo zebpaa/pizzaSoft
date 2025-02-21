@@ -1,6 +1,6 @@
 import { DealsList } from "../../widgets"
 
-const HomePage: React.FC = () => {
+const Home: React.FC = () => {
 	return (
 		<>
 			<DealsList />
@@ -8,4 +8,4 @@ const HomePage: React.FC = () => {
 	)
 }
 
-export default HomePage
+export default Home
