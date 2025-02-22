@@ -10,30 +10,28 @@ const DealsList: React.FC = () => {
 		<>
 			<AddDeal isOpen={isOpen} onHide={setIsOpen} deals={deals} />
 			<div className={cls.content}>
-				<div
-					className={cls.content__createButton}
-					onClick={() => setIsOpen(true)}
-				>
-					<Button width="368">Создать</Button>
+				<div className={cls.createButton}>
+					<Button width="368" onClick={() => setIsOpen(true)}>
+						Создать
+					</Button>
 				</div>
 
 				<div className={cls.content__buttonGroup}>
-					<div onClick={() => setActiveTab("all")}>
-						<Button
-							width="300"
-							variant={activeTab === "all" ? "active" : undefined}
-						>
-							Все
-						</Button>
-					</div>
-					<div onClick={() => setActiveTab("archive")}>
-						<Button
-							width="300"
-							variant={activeTab === "archive" ? "active" : undefined}
-						>
-							Архив
-						</Button>
-					</div>
+					<Button
+						width="300"
+						variant={activeTab === "all" ? "active" : undefined}
+						onClick={() => setActiveTab("all")}
+					>
+						Все
+					</Button>
+
+					<Button
+						width="300"
+						variant={activeTab === "archive" ? "active" : undefined}
+						onClick={() => setActiveTab("archive")}
+					>
+						Архив
+					</Button>
 				</div>
 				<DealsTable deals={deals} activeTab={activeTab} />
 			</div>

@@ -92,3 +92,15 @@
 		transform: rotate(180deg);
 	}
 }
+
+@media (max-width: 558px) {
+	.customInput__dropdown span {
+		font-size: 15px;
+	}
+	.customInput__title {
+		font-size: 15px;
+	}
+	.customInput__option {
+		font-size: 15px;
+	}
+}

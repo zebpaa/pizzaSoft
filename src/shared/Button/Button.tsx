@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
 		<button
 			type={type}
 			className={cls[variant]}
-			style={{ width: `${width}px` || "auto" }}
+			style={{ maxWidth: `${width}px` || "auto" }}
 			disabled={disabled}
 			onClick={onClick}
 		>

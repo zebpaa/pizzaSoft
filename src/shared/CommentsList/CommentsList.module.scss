@@ -43,3 +43,13 @@
 		}
 	}
 }
+
+@media (max-width: 558px) {
+	.commentsList {
+		padding: 23px 16px 23px 15px;
+	}
+
+	.commentsList__item {
+		font-size: 15px;
+	}
+}

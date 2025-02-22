@@ -39,3 +39,15 @@
 		}
 	}
 }
+
+@media (max-width: 558px) {
+	.container__content {
+		padding: 27px 20px 90px 18px;
+	}
+	.container__heading {
+		font-size: 30px;
+	}
+	.container {
+		padding: 17px 18px 19px 18px;
+	}
+}

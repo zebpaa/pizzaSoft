@@ -20,10 +20,7 @@ const DealsTable = ({ deals, activeTab }: DealsTableProps) => {
 	} = useDealsTable()
 
 	return (
-		<table
-			className={cls.content__tabList}
-			style={{ borderCollapse: "collapse" }}
-		>
+		<table className={cls.content__tabList}>
 			<thead>
 				<tr>
 					<th ref={idRef} style={{ paddingLeft: `${paddingLeft.id}px` }}>
@@ -55,19 +52,29 @@ const DealsTable = ({ deals, activeTab }: DealsTableProps) => {
 						return completedStatuses.includes(d.status)
 					})
 					.map((deal) => (
-						<tr
-							key={deal.id}
-							onClick={handleClick(deal)}
-							style={{ cursor: "pointer" }}
-						>
-							<td style={{ paddingLeft: `${paddingLeft.id}px` }}>{deal.id}</td>
-							<td style={{ paddingLeft: `${paddingLeft.name}px` }}>
+						<tr key={deal.id} onClick={handleClick(deal)}>
+							<td
+								data-label="ID"
+								style={{ paddingLeft: `${paddingLeft.id}px` }}
+							>
+								{deal.id}
+							</td>
+							<td
+								data-label="Название"
+								style={{ paddingLeft: `${paddingLeft.name}px` }}
+							>
 								{deal.name}
 							</td>
-							<td style={{ paddingLeft: `${paddingLeft.status}px` }}>
+							<td
+								data-label="Статус"
+								style={{ paddingLeft: `${paddingLeft.status}px` }}
+							>
 								{deal.status}
 							</td>
-							<td style={{ paddingLeft: `${paddingLeft.creationDate}px` }}>
+							<td
+								data-label="Дата создания"
+								style={{ paddingLeft: `${paddingLeft.creationDate}px` }}
+							>
 								{deal.creationDate}
 							</td>
 						</tr>

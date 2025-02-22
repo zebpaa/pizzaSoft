@@ -71,3 +71,18 @@
 .invalid {
 	border: rgb(182, 23, 23) solid 1px;
 }
+
+@media (max-width: 558px) {
+	.feedback {
+		font-size: 12px;
+	}
+	.customInput__title {
+		font-size: 17px;
+	}
+	.customInput__input {
+		font-size: 15px;
+	}
+	.customInput__button {
+		font-size: 14px;
+	}
+}

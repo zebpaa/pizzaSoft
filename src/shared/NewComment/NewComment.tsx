@@ -23,7 +23,7 @@ const NewComment: React.FC<NewCommentProps> = ({ deal }: NewCommentProps) => {
 						className={`${cls.comment__input} ${errors.name?.message ? cls.invalid : ""}`}
 						type="text"
 						placeholder="Введите название"
-						autoComplete="onChange"
+						autoComplete="on"
 					/>
 				</div>
 				{errors.name && (

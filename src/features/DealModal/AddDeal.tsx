@@ -37,11 +37,9 @@ const AddDeal: React.FC<AddDealProps> = ({
 					<Button type="submit" variant="active" width="290">
 						Создать
 					</Button>
-					<div onClick={handleClick}>
-						<Button variant="cancel" width="290">
-							Отмена
-						</Button>
-					</div>
+					<Button variant="cancel" width="290" onClick={handleClick}>
+						Отмена
+					</Button>
 				</div>
 			</form>
 		</ModalContainer>
