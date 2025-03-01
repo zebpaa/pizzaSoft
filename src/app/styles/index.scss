@@ -113,6 +113,20 @@ legend {
 	display: block;
 }
 
+@font-face {
+	font-family: "Quicksand";
+	src: url("Quicksand-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("Roboto-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+
 body {
 	font-family: "Inter";
 	font-style: normal;
@@ -120,6 +134,6 @@ body {
 	font-size: 36px;
 	line-height: 44px;
 	color: #000000;
-
 	overflow-x: hidden;
+	font-family: "Roboto", sans-serif;
 }

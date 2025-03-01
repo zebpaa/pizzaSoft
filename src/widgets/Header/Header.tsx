@@ -1,13 +1,16 @@
-import { Link } from "react-router"
+import { Link } from "react-router";
 
-import cls from "./Header.module.scss"
+
+
+import cls from "./Header.module.scss";
+
 
 const Header: React.FC = () => {
 	return (
 		<div className={cls.wrapper}>
-			<Link to="/">Заголовок</Link>
+			<Link to="/">PizzaSoft</Link>
 			<ul>
-				<Link to="/">сделки</Link>
+				<Link to="/">Сотрудники</Link>
 			</ul>
 		</div>
 	)

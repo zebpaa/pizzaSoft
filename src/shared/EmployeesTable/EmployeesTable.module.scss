@@ -1,0 +1,172 @@
+// select {
+// 	/* Убираем стандартные стили */
+// 	border: 0 !important; /* Убираем границу */
+// 	outline: none !important; /* Убираем контур при фокусе */
+// 	background: transparent; /* Прозрачный фон */
+// 	-webkit-appearance: none; /* Для Chrome/Safari */
+// 	-moz-appearance: none; /* Для Firefox */
+// 	appearance: none; /* Стандартный способ */
+// 	box-shadow: none !important; /* Убираем тени если есть */
+// }
+
+// /* Для IE */
+// select::-ms-expand {
+// 	display: none; /* Убираем стандартную стрелку */
+// }
+
+// /* Кастомная стрелка (опционально) */
+// select {
+// 	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+// 	background-repeat: no-repeat;
+// 	background-position: right 0.5rem center;
+// 	background-size: 1.5em;
+// 	padding-right: 2.5rem; /* Место для стрелки */
+// }
+
+// /* Убираем фокус-стили в Firefox */
+// select:-moz-focusring {
+// 	color: transparent;
+// 	text-shadow: 0 0 0 #000;
+// }
+
+// /* Стили для option (работает не во всех браузерах) */
+// option {
+// 	border: none !important; /* Убираем границы */
+// 	background: #fff !important; /* Белый фон */
+// 	box-shadow: none !important; /* Без теней */
+// }
+
+.content {
+	&__tabList {
+		border-collapse: collapse;
+		width: 100%;
+
+		th {
+			font-weight: bold;
+		}
+		tr {
+			height: 85px;
+			text-align: left;
+			border: solid 1px #fff;
+			background-color: #f0f0f0;
+			> th {
+				&:last-child {
+					text-align: right;
+					padding-right: 5px;
+				}
+			}
+
+			> th {
+				&:first-child {
+					text-align: left;
+					padding-left: 5px;
+				}
+			}
+			> td {
+				&:last-child {
+					text-align: right;
+					padding-right: 5px;
+				}
+			}
+			> td {
+				&:first-child {
+					text-align: left;
+					padding-left: 5px;
+				}
+			}
+		}
+		tbody > tr {
+			cursor: pointer;
+		}
+	}
+}
+
+@media (max-width: 1140px) {
+	.content__tabList {
+		font-size: 22px;
+	}
+}
+
+@media (max-width: 890px) {
+	.content__tabList {
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: 605px) {
+	.content__tabList thead {
+		display: none;
+		font-size: 16px;
+	}
+
+	.content__tabList tr {
+		display: block;
+		margin-bottom: 15px;
+		border: 1px solid #ddd;
+		border-radius: 8px;
+		font-size: 16px;
+		height: 130px;
+		> td {
+			&:first-child {
+				text-align: right;
+			}
+		}
+	}
+
+	.content__tabList td {
+		display: block;
+		width: 100%;
+		padding: 0px 15px;
+		text-align: right;
+		position: relative;
+		font-size: 16px;
+		padding-left: 0;
+	}
+
+	.content__tabList td::before {
+		content: attr(data-label);
+		position: absolute;
+		left: 15px;
+		top: 50%;
+		transform: translateY(-50%);
+		font-weight: 600;
+		color: #333;
+		font-size: 16px;
+	}
+}
+
+.item {
+	font-size: 36px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	background-color: #f0f0f0;
+	border-left: solid 1px #fff;
+	border-right: solid 1px #fff;
+	border-bottom: solid 1px #fff;
+	padding: 5px 15px;
+}
+
+.item > span {
+	width: 100%;
+}
+
+@media (max-width: 1322px) {
+	.item {
+		font-size: 25px;
+	}
+}
+
+@media (max-width: 890px) {
+	.item {
+		font-size: 22px;
+	}
+}
+
+@media (max-width: 680px) {
+	.item {
+		font-size: 18px;
+	}
+}
+
+

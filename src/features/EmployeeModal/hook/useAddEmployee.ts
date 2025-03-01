@@ -1,4 +1,4 @@
-import type { Deal } from "../../../pages"
+import type { Employee } from "../../../pages"
 
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
@@ -13,21 +13,21 @@ interface FormInput {
 }
 
 interface useInputArgs {
-	deals: Deal[]
+	employees: Employee[]
 	onHide: (value: boolean) => void
 }
 
-export const useAddDeal = ({ deals, onHide }: useInputArgs) => {
+export const useAddEmployee = ({ employees, onHide }: useInputArgs) => {
 	const schema = yup.object({
 		name: yup
 			.string()
 			.trim()
-			.required("Это обязательное поле")
-			.min(3, "Минимальная длина: 3")
-			.max(20, "Максимальная длина: 20")
+			.required("Обязательное поле")
+			.min(3, "Мин. длина: 3")
+			.max(20, "Макс. длина: 20")
 			.notOneOf(
-				deals.map((d: Deal) => d.name),
-				"Такая сделка уже есть",
+				employees.map((e: Employee) => e.name),
+				"Такой сотрудник уже есть",
 			),
 	})
 
@@ -42,18 +42,19 @@ export const useAddDeal = ({ deals, onHide }: useInputArgs) => {
 
 	const onSubmit = ({ name }: FormInput) => {
 		const newId =
-			deals.length > 0 ? Math.max(...deals.map((d) => Number(d.id))) + 1 : 1
+			employees.length > 0
+				? Math.max(...employees.map((e) => Number(e.id))) + 1
+				: 1
 
-		const newDeal: Deal = {
+		const newEmployee: Employee = {
 			id: newId,
 			name,
-			status: "Новый",
-			creationDate: String(new Date().toLocaleDateString()),
+			role: "waiter",
 			phone: "",
-			budget: "",
-			fullName: "",
+			birthday: "03.12.1994",
 		}
-		dispatch(addDeal(newDeal))
+
+		// dispatch(addDeal(newEmployee))
 		reset()
 		onHide(false)
 	}

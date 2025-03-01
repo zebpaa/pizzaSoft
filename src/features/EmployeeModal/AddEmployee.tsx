@@ -1,29 +1,39 @@
-import type { Deal } from "../../pages"
+import type { Employee } from "../../pages"
 
 import { Button, ModalContainer } from "../../shared"
-import { useAddDeal } from "./hook/useAddDeal"
-import cls from "./AddDeal.module.scss"
+import { useAddEmployee } from "./hook/useAddEmployee"
+import cls from "./AddEmployee.module.scss"
 
-type AddDealProps = {
+type AddEmployeeProps = {
 	isOpen: boolean
 	onHide: (value: boolean) => void
-	deals: Deal[]
+	employees: Employee[]
 }
 
-const AddDeal: React.FC<AddDealProps> = ({
-	deals,
+const AddEmployee: React.FC<AddEmployeeProps> = ({
+	employees,
 	isOpen,
 	onHide,
-}: AddDealProps) => {
-	const { handleSubmit, register, errors, handleClick, onSubmit } = useAddDeal({
-		deals,
-		onHide,
-	})
+}: AddEmployeeProps) => {
+	const { handleSubmit, register, errors, handleClick, onSubmit } =
+		useAddEmployee({
+			employees,
+			onHide,
+		})
 
 	return (
-		<ModalContainer isOpen={isOpen} onHide={onHide} title="Создать сделку">
+		<ModalContainer isOpen={isOpen} onHide={onHide} title="Создать сотрудника">
 			<p className={cls.modal__label}>название</p>
 			<form onSubmit={handleSubmit(onSubmit)}>
+				<input
+					{...register("name")}
+					className={`${cls.modal__input} ${errors.name?.message ? cls.invalid : ""}`}
+					type="text"
+					placeholder="Введите название"
+				/>
+				{errors.name && (
+					<p className={cls.modal__feedback}>{errors.name?.message}</p>
+				)}
 				<input
 					{...register("name")}
 					className={`${cls.modal__input} ${errors.name?.message ? cls.invalid : ""}`}
@@ -46,4 +56,4 @@ const AddDeal: React.FC<AddDealProps> = ({
 	)
 }
 
-export default AddDeal
+export default AddEmployee

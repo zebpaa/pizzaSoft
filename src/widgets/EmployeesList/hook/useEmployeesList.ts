@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { addDeals, selectors } from "../../../entities/dealsSlice"
 import { deals as mockDeals } from "../../../pages"
 
-export const useDealsList = () => {
+export const useEmployeesList = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [activeTab, setActiveTab] = useState("all") // "archive"
 	const dispatch = useDispatch()

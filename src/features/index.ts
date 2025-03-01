@@ -1,3 +1,3 @@
-import AddDeal from "./DealModal/AddDeal"
+import AddEmployee from "./EmployeeModal/AddEmployee"
 
-export { AddDeal }
+export { AddEmployee }

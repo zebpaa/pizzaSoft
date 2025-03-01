@@ -1,9 +1,11 @@
-import { DealsList } from "../../widgets"
+import { EmployeesList, FilterForm } from "../../widgets"
+import cls from "./Home.module.scss"
 
 const Home: React.FC = () => {
 	return (
 		<>
-			<DealsList />
+			<FilterForm />
+			<EmployeesList />
 		</>
 	)
 }
