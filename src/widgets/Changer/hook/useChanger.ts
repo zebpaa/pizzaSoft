@@ -1,4 +1,4 @@
-import type { Deal } from "../../../pages"
+import type { Employee } from "../../../pages"
 import type { SubmitHandler } from "react-hook-form"
 
 import { useState } from "react"
@@ -8,22 +8,18 @@ import { useDispatch } from "react-redux"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
-import { updateDeal } from "../../../entities/dealsSlice"
+import { updateEmployee } from "../../../entities/employeesSlice"
 
-export const useChanger = (deal: Deal) => {
-	type Inputs = {
-		phone: string
-		budget: string
-		fullName: string
-		creationDate: string
-		status: "Новый" | "Провал" | "Успешно" | "В работе" | "Почти завершен"
-	}
+type Inputs = {
+	phone: string
+	name: string
+	birthday: string
+	role: "driver" | "waiter" | "cook"
+	isArchive: boolean
+}
 
+export const useChanger = (employee: Employee) => {
 	const schema = yup.object({
-		status: yup
-			.string()
-			.oneOf(["Новый", "Провал", "Успешно", "В работе", "Почти завершен"])
-			.required("Обязательное поле"),
 		phone: yup
 			.string()
 			.trim()
@@ -31,23 +27,16 @@ export const useChanger = (deal: Deal) => {
 			.min(3, "Мин. длина: 3")
 			.max(20, "Макс. длина: 20")
 			.matches(
-				/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/,
-				"Неправильно! Пример: +7 (999) 999-99-99",
+				/^\+7 \(\d{3}\) \d{3}-\d{4}$/,
+				"Неправильно! Пример: +7 (999) 999-9999",
 			),
-		budget: yup
-			.string()
-			.trim()
-			.required("Обязательное поле")
-			.min(3, "Мин. длина: 3")
-			.max(20, "Макс. длина: 20")
-			.matches(/^(0|[1-9]\d*) руб.$/, "Неправильно! Пример: 10000 руб."),
-		fullName: yup
+		name: yup
 			.string()
 			.trim()
 			.required("Обязательное поле")
 			.min(3, "Мин. длина: 3")
 			.max(30, "Макс. длина: 30"),
-		creationDate: yup
+		birthday: yup
 			.string()
 			.required("Обязательное поле")
 			.min(3, "Мин. длина: 3")
@@ -56,19 +45,23 @@ export const useChanger = (deal: Deal) => {
 				/^(0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4})$/,
 				"Неправильно! Пример: 30.01.2024",
 			),
+		role: yup
+			.string()
+			.oneOf(["driver", "waiter", "cook"])
+			.required("Обязательное поле"),
 	})
 
 	const dispatch = useDispatch()
 
 	const methods = useForm<Inputs>({
 		defaultValues: {
-			phone: deal.phone,
-			budget: deal.budget,
-			fullName: deal.fullName,
-			creationDate: deal.creationDate,
-			status: deal.status,
+			phone: employee.phone,
+			name: employee.name,
+			birthday: employee.birthday,
+			role: employee.role,
+			isArchive: employee.isArchive,
 		},
-		resolver: yupResolver(schema),
+		resolver: yupResolver(schema) as any,
 	})
 
 	const {
@@ -79,19 +72,19 @@ export const useChanger = (deal: Deal) => {
 	} = methods
 
 	const setFieldsToNonEditable = () => {
-		const fields = ["phone", "budget", "fullName", "creationDate", "status"]
+		const fields = ["phone", "name", "birthday", "role", "isArchive"]
 		fields.forEach((field) => {
 			setIsEditable((prev) => ({ ...prev, [field]: false }))
 		})
 	}
 
 	const submit: SubmitHandler<Inputs> = (data) => {
-		const newDeal = {
+		const newEmployee = {
 			changes: data,
-			id: deal.id,
+			id: employee.id,
 		}
 
-		dispatch(updateDeal(newDeal))
+		dispatch(updateEmployee(newEmployee))
 
 		reset(data)
 		setFieldsToNonEditable()
@@ -104,14 +97,14 @@ export const useChanger = (deal: Deal) => {
 
 	const [isEditable, setIsEditable] = useState({
 		phone: false,
-		budget: false,
-		fullName: false,
-		creationDate: false,
-		status: false,
+		name: false,
+		birthday: false,
+		role: false,
+		isArchive: false,
 	})
 
 	const toggleEditMode = (
-		field: "phone" | "budget" | "fullName" | "creationDate" | "status",
+		field: "phone" | "name" | "birthday" | "role" | "isArchive",
 	) => {
 		if (isEditable[field]) {
 			resetField(field)

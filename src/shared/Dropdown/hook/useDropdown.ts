@@ -6,7 +6,7 @@ export const useDropdown = (id: string) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [containerWidth, setContainerWidth] = useState(0)
 
-	const options = ["Новый", "В работе", "Почти завершен", "Успешно", "Провал"]
+	const options = ["Водитель", "Официант", "Повар"]
 
 	const currentValue = watch(id) // Получаем текущее значение из формы
 
@@ -14,8 +14,26 @@ export const useDropdown = (id: string) => {
 		setIsOpen((prev: any) => !prev)
 	}
 
-	const handleOptionClick = (option: string) => {
-		setValue(id, option, { shouldDirty: true })
+	type RoleMap = {
+		driver: string
+		waiter: string
+		cook: string
+	}
+
+	const roleMap: RoleMap = {
+		driver: "Водитель",
+		waiter: "Официант",
+		cook: "Повар",
+	}
+
+	const handleOptionClick = (russianRole: string) => {
+		const englishRole = Object.entries(roleMap).find(
+			([, value]) => value === russianRole,
+		)?.[0]
+
+		if (englishRole) {
+			setValue(id, englishRole, { shouldDirty: true })
+		}
 		setIsOpen(false)
 	}
 
@@ -53,5 +71,6 @@ export const useDropdown = (id: string) => {
 		currentValue,
 		toggleDropdown,
 		isOpen,
+		roleMap,
 	}
 }

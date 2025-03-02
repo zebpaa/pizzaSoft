@@ -1,41 +1,3 @@
-// select {
-// 	/* Убираем стандартные стили */
-// 	border: 0 !important; /* Убираем границу */
-// 	outline: none !important; /* Убираем контур при фокусе */
-// 	background: transparent; /* Прозрачный фон */
-// 	-webkit-appearance: none; /* Для Chrome/Safari */
-// 	-moz-appearance: none; /* Для Firefox */
-// 	appearance: none; /* Стандартный способ */
-// 	box-shadow: none !important; /* Убираем тени если есть */
-// }
-
-// /* Для IE */
-// select::-ms-expand {
-// 	display: none; /* Убираем стандартную стрелку */
-// }
-
-// /* Кастомная стрелка (опционально) */
-// select {
-// 	background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
-// 	background-repeat: no-repeat;
-// 	background-position: right 0.5rem center;
-// 	background-size: 1.5em;
-// 	padding-right: 2.5rem; /* Место для стрелки */
-// }
-
-// /* Убираем фокус-стили в Firefox */
-// select:-moz-focusring {
-// 	color: transparent;
-// 	text-shadow: 0 0 0 #000;
-// }
-
-// /* Стили для option (работает не во всех браузерах) */
-// option {
-// 	border: none !important; /* Убираем границы */
-// 	background: #fff !important; /* Белый фон */
-// 	box-shadow: none !important; /* Без теней */
-// }
-
 .content {
 	&__tabList {
 		border-collapse: collapse;
@@ -52,32 +14,38 @@
 			> th {
 				&:last-child {
 					text-align: right;
-					padding-right: 5px;
+					padding-right: 15px;
 				}
 			}
 
 			> th {
 				&:first-child {
 					text-align: left;
-					padding-left: 5px;
+					padding-left: 15px;
 				}
 			}
 			> td {
 				&:last-child {
 					text-align: right;
-					padding-right: 5px;
+					padding-right: 15px;
 				}
 			}
 			> td {
 				&:first-child {
 					text-align: left;
-					padding-left: 5px;
+					padding-left: 15px;
 				}
 			}
 		}
 		tbody > tr {
 			cursor: pointer;
 		}
+	}
+}
+
+@media (max-width: 1322px) {
+	.item {
+		font-size: 25px;
 	}
 }
 
@@ -88,8 +56,18 @@
 }
 
 @media (max-width: 890px) {
+	.item {
+		font-size: 22px;
+	}
+
 	.content__tabList {
 		font-size: 16px;
+	}
+}
+
+@media (max-width: 680px) {
+	.item {
+		font-size: 18px;
 	}
 }
 
@@ -150,23 +128,3 @@
 .item > span {
 	width: 100%;
 }
-
-@media (max-width: 1322px) {
-	.item {
-		font-size: 25px;
-	}
-}
-
-@media (max-width: 890px) {
-	.item {
-		font-size: 22px;
-	}
-}
-
-@media (max-width: 680px) {
-	.item {
-		font-size: 18px;
-	}
-}
-
-

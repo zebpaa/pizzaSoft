@@ -46,6 +46,7 @@
 
 		&:disabled {
 			background: #c2c2c2;
+			cursor: not-allowed;
 		}
 	}
 
@@ -58,6 +59,46 @@
 		line-height: 19px;
 		color: #000000;
 		z-index: 1;
+	}
+
+	input[type="checkbox"] {
+		position: relative;
+		appearance: none;
+		width: 30px;
+		height: 30px;
+		border-radius: 4px;
+		cursor: pointer;
+		margin: 0;
+		transition: all 0.3s ease;
+
+		&:checked {
+			background: #313131;
+			&::after {
+				content: "";
+				position: absolute;
+				left: 9px;
+				top: 3px;
+				width: 12px;
+				height: 18px;
+				border: solid black;
+				border-width: 0 3px 3px 0;
+				transform: rotate(45deg);
+			}
+		}
+
+		&:disabled {
+			background: #c2c2c2;
+			border-color: #8a8a8a;
+			cursor: not-allowed;
+
+			&:checked {
+				background: #8a8a8a;
+			}
+		}
+
+		&.invalid {
+			border-color: rgb(182, 23, 23);
+		}
 	}
 }
 
@@ -76,12 +117,15 @@
 	.feedback {
 		font-size: 12px;
 	}
+
 	.customInput__title {
 		font-size: 17px;
 	}
+
 	.customInput__input {
 		font-size: 15px;
 	}
+
 	.customInput__button {
 		font-size: 14px;
 	}

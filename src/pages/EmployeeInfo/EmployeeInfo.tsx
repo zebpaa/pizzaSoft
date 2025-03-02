@@ -1,29 +1,28 @@
-import type { Deal } from ".."
+import type { Employee } from ".."
 
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 
-import { selectors } from "../../entities/dealsSlice"
+import { selectors } from "../../entities/employeesSlice"
 import { Changer } from "../../widgets"
 import cls from "./EmployeeInfo.module.scss"
 
 const EmployeeInfo: React.FC = () => {
 	const { id } = useParams()
 
-	const deals: Deal[] = useSelector(selectors.selectAll)
-	const deal = deals.find((d) => d.id === Number(id))
+	const employees: Employee[] = useSelector(selectors.selectAll)
+	const employee = employees.find((e) => e.id === Number(id))
 
-	if (!deal) {
+	if (!employee) {
 		return <div>Loading...</div>
 	}
 
 	return (
 		<div className={cls.container}>
 			<div className={cls.container__content}>
-				<h1 className={cls.container__heading}>{deal.name}</h1>
-
-				<div className={cls.container__dealInfo}>
-					<Changer deal={deal} />
+				<div className={cls.container__employeeInfo}>
+					<h1 className={cls.container__heading}>{employee.name}</h1>
+					<Changer employee={employee} />
 				</div>
 			</div>
 		</div>

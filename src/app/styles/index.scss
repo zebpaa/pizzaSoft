@@ -115,14 +115,14 @@ legend {
 
 @font-face {
 	font-family: "Quicksand";
-	src: url("Quicksand-Regular.ttf") format("truetype");
+	src: url("/fonts/Quicksand-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "Roboto";
-	src: url("Roboto-Regular.ttf") format("truetype");
+	src: url("/fonts/Roboto-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 }
@@ -136,4 +136,8 @@ body {
 	color: #000000;
 	overflow-x: hidden;
 	font-family: "Roboto", sans-serif;
+}
+
+a {
+	appearance: none;
 }

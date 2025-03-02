@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
-import { addDeal } from "../../../entities/dealsSlice"
+import { addEmployee } from "../../../entities/employeesSlice"
 
 interface FormInput {
 	name: string
@@ -52,9 +52,10 @@ export const useAddEmployee = ({ employees, onHide }: useInputArgs) => {
 			role: "waiter",
 			phone: "",
 			birthday: "03.12.1994",
+			isArchive: false,
 		}
 
-		// dispatch(addDeal(newEmployee))
+		dispatch(addEmployee(newEmployee))
 		reset()
 		onHide(false)
 	}

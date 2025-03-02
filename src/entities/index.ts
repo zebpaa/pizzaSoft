@@ -10,12 +10,10 @@ import {
 } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 
-import commentsSlice from "./commentsSlice"
-import dealsSlice from "./dealsSlice"
+import employeesSlice from "./employeesSlice"
 
 const reducers = combineReducers({
-	deals: dealsSlice,
-	comments: commentsSlice,
+	employees: employeesSlice,
 })
 
 const persistConfig = {

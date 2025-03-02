@@ -1,11 +1,11 @@
-import type { Deal } from "../../pages"
+import type { Employee } from "../../pages"
 
 import { useDropdown } from "./hook/useDropdown"
 import cls from "./Dropdown.module.scss"
 
 interface DropdownProps {
 	title: string
-	id: keyof Deal
+	id: keyof Employee
 	isEditable: boolean
 	toggleEditMode: any
 }
@@ -24,6 +24,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 		currentValue,
 		toggleDropdown,
 		isOpen,
+		roleMap,
 	} = useDropdown(id)
 
 	return (
@@ -45,10 +46,13 @@ const Dropdown: React.FC<DropdownProps> = ({
 						backgroundColor: isEditable
 							? "rgb(194, 194, 194)"
 							: "rgb(237, 237, 237)",
+						cursor: isEditable ? "pointer" : "not-allowed",
 					}}
 					onClick={toggleDropdown}
 				>
-					<span {...register(id)}>{currentValue}</span>
+					<span {...register(id)}>
+						{roleMap[currentValue as keyof typeof roleMap]}
+					</span>
 					{isEditable && (
 						<svg
 							className={`${cls.dropdownIcon} ${isOpen ? cls.open : ""}`}
@@ -62,14 +66,21 @@ const Dropdown: React.FC<DropdownProps> = ({
 					)}
 				</div>
 				{isOpen && isEditable && (
-					<div className={cls.customInput__options} id="container">
-						<div className={cls.customInput__scrollContainer}>
+					<div
+						className={cls.customInput__options}
+						id="container"
+						style={{ height: `calc(${options.length * 40}px - 27px)` }}
+					>
+						<div>
 							{options
-								.filter((option) => option !== currentValue)
+								.filter(
+									(option) =>
+										option !== roleMap[currentValue as keyof typeof roleMap],
+								)
 								.map((option) => (
 									<div
 										key={option}
-										style={{ width: `calc(${containerWidth}px - 33px)` }}
+										style={{ width: `calc(${containerWidth}px - 14px)` }}
 										className={cls.customInput__option}
 										onClick={() => handleOptionClick(option)}
 									>

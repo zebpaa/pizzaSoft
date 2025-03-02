@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-import { addDeals, selectors } from "../../../entities/dealsSlice"
-import { deals as mockDeals } from "../../../pages"
+import { addEmployees, selectors } from "../../../entities/employeesSlice"
+import { employees as mockEmployees } from "../../../pages"
 
 export const useEmployeesList = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -10,16 +10,16 @@ export const useEmployeesList = () => {
 	const dispatch = useDispatch()
 
 	useEffect(() => {
-		dispatch(addDeals(mockDeals))
+		dispatch(addEmployees(mockEmployees))
 	}, [dispatch])
 
-	const deals = useSelector(selectors.selectAll)
+	const employees = useSelector(selectors.selectAll)
 
 	return {
 		isOpen,
 		setIsOpen,
 		activeTab,
 		setActiveTab,
-		deals,
+		employees,
 	}
 }

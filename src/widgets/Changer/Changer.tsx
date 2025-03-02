@@ -1,4 +1,4 @@
-import type { Deal } from "../../pages"
+import type { Employee } from "../../pages"
 
 import { FormProvider } from "react-hook-form"
 
@@ -7,10 +7,10 @@ import { useChanger } from "./hook/useChanger"
 import cls from "./Changer.module.scss"
 
 interface ChangerProps {
-	deal: Deal
+	employee: Employee
 }
 
-const Changer: React.FC<ChangerProps> = ({ deal }: ChangerProps) => {
+const Changer: React.FC<ChangerProps> = ({ employee }: ChangerProps) => {
 	const {
 		toggleEditMode,
 		isDirty,
@@ -19,20 +19,28 @@ const Changer: React.FC<ChangerProps> = ({ deal }: ChangerProps) => {
 		submit,
 		resetForm,
 		methods,
-	} = useChanger(deal)
+	} = useChanger(employee)
 
 	return (
 		<FormProvider {...methods}>
 			<form className={cls.container__inputs} onSubmit={handleSubmit(submit)}>
 				<Dropdown
-					title="Статус"
-					id="status"
-					isEditable={isEditable["status"]}
-					toggleEditMode={() => toggleEditMode("status")}
+					title="Должность"
+					id="role"
+					isEditable={isEditable["role"]}
+					toggleEditMode={() => toggleEditMode("role")}
 				/>
 
 				<Input
-					title="Номер телефона"
+					title="Имя сотрудника"
+					id="name"
+					placeholder="Иван Иванович Иванов"
+					isEditable={isEditable["name"]}
+					toggleEditMode={() => toggleEditMode("name")}
+				/>
+
+				<Input
+					title="Телефон"
 					id="phone"
 					placeholder="+7 (999) 999-99-99"
 					type="tel"
@@ -41,28 +49,20 @@ const Changer: React.FC<ChangerProps> = ({ deal }: ChangerProps) => {
 				/>
 
 				<Input
-					title="Бюджет"
-					id="budget"
-					placeholder="10000 руб."
-					isEditable={isEditable["budget"]}
-					toggleEditMode={() => toggleEditMode("budget")}
-				/>
-
-				<Input
-					title="ФИО"
-					id="fullName"
-					placeholder="Иван Иванович Иванов"
-					isEditable={isEditable["fullName"]}
-					toggleEditMode={() => toggleEditMode("fullName")}
+					title="Дата создания"
+					id="birthday"
+					placeholder="30.01.2024"
+					isEditable={isEditable["birthday"]}
+					toggleEditMode={() => toggleEditMode("birthday")}
 				/>
 
 				<div className={cls.lastInput}>
 					<Input
-						title="Дата создания"
-						id="creationDate"
-						placeholder="30.01.2024"
-						isEditable={isEditable["creationDate"]}
-						toggleEditMode={() => toggleEditMode("creationDate")}
+						title="в архиве"
+						id="isArchive"
+						type="checkbox"
+						isEditable={isEditable["isArchive"]}
+						toggleEditMode={() => toggleEditMode("isArchive")}
 					/>
 				</div>
 
