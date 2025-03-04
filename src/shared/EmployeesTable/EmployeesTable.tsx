@@ -5,10 +5,9 @@ import cls from "./EmployeesTable.module.scss"
 
 interface EmployeesTableProps {
 	employees: Employee[]
-	activeTab: string
 }
 
-const EmployeesTable = ({ employees, activeTab }: EmployeesTableProps) => {
+const EmployeesTable = ({ employees }: EmployeesTableProps) => {
 	const { handleClick, roleMap } = useEmployeesTable()
 
 	return (

@@ -1,7 +1,9 @@
 import type { Employee } from "../../pages"
 import type { FieldError } from "react-hook-form"
 
+import { useRef } from "react"
 import { useFormContext } from "react-hook-form"
+import InputMask from "react-input-mask"
 
 import cls from "./Input.module.scss"
 
@@ -22,12 +24,15 @@ const Input: React.FC<InputProps> = ({
 	isEditable,
 	toggleEditMode,
 }: InputProps) => {
+	const inputRef = useRef<HTMLInputElement>(null)
 	const {
 		register,
 		formState: { errors },
+		getValues,
 	} = useFormContext()
 
 	const error = errors[id]
+	const defaultValue = getValues(id) || ""
 
 	return (
 		<>
@@ -44,17 +49,35 @@ const Input: React.FC<InputProps> = ({
 						</button>
 					</div>
 					<div className={cls.customInput__inputContainer}>
-						<input
-							className={`${cls.customInput__input} ${errors[id]?.message ? cls.invalid : ""}`}
-							autoComplete="on"
-							id={id}
-							{...register(id)}
-							style={{ background: isEditable ? "#C2C2C2" : "#ededed" }}
-							type={type}
-							placeholder={placeholder}
-							disabled={!isEditable}
-						/>
-
+						{id === "phone" || id === "birthday" ? (
+							<InputMask
+								mask={id === "phone" ? "+7 (999) 999-9999" : "99.99.9999"}
+								defaultValue={defaultValue}
+								{...register(id)}
+								className={`${cls.customInput__input} ${
+									error ? cls.invalid : ""
+								}`}
+								autoComplete="on"
+								style={{ background: isEditable ? "#C2C2C2" : "#ededed" }}
+								disabled={!isEditable}
+								placeholder={placeholder}
+								type={type}
+								id={id}
+							>
+								{(inputProps: any) => <input {...inputProps} ref={inputRef} />}
+							</InputMask>
+						) : (
+							<input
+								className={`${cls.customInput__input} ${errors[id]?.message ? cls.invalid : ""}`}
+								autoComplete="on"
+								id={id}
+								{...register(id)}
+								style={{ background: isEditable ? "#C2C2C2" : "#ededed" }}
+								type={type}
+								placeholder={placeholder}
+								disabled={!isEditable}
+							/>
+						)}
 						{error && (
 							<p className={cls.feedback}>{(error as FieldError).message}</p>
 						)}

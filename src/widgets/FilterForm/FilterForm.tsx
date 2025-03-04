@@ -1,21 +1,21 @@
-// сортировки списка сотрудников по имени и дате рождения
-// по должности и их статусу.
-// Должность - выпадающий список, содержащий (Повар, Официант, Водитель).
+import type { RootState } from "../../entities/index"
 
-// import { useDispatch, useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
-// import { RootState } from "../../app/store"
-// import { setSort, updateFilters } from "../../features/employees/employeesSlice"
+import {
+	setFilterArchive,
+	setFilterRole,
+	setSort,
+} from "../../entities/employeesSlice"
 import cls from "./FilterForm.module.scss"
 
 const FilterForm: React.FC = () => {
-	// const options = ["Повар", "Официант", "Водитель"]
+	const dispatch = useDispatch()
+	const { role, isArchive } = useSelector(
+		(state: RootState) => state.employees.filters,
+	)
 
-	// const dispatch = useDispatch()
-	// const { role: selectedRole, isArchive } = useSelector(
-	// 	(state: RootState) => state.employees.filters,
-	// )
-	// const { sortBy } = useSelector((state: RootState) => state.employees)
+	const sortBy = useSelector((state: RootState) => state.employees.sortBy)
 
 	const roleOptions = [
 		{ value: "all", label: "Все должности" },
@@ -25,26 +25,27 @@ const FilterForm: React.FC = () => {
 	]
 
 	const handleRoleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		// dispatch(updateFilters({ role: e.target.value }))
+		dispatch(setFilterRole(e.target.value))
 	}
 
 	const handleArchiveChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		// dispatch(updateFilters({ isArchive: e.target.checked }))
+		dispatch(setFilterArchive(e.target.checked))
 	}
 
 	const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		// dispatch(setSort(e.target.value))
+		dispatch(setSort(e.target.value))
 	}
 
 	return (
 		<div className={cls.content}>
 			<div className={cls.filterForm}>
 				<div className={cls.filterGroup}>
-					<label>Должность:</label>
+					<label htmlFor="filterRole">Должность:</label>
 					<select
-						// value={selectedRole}
+						value={role}
 						onChange={handleRoleChange}
 						className={cls.select}
+						id="filterRole"
 					>
 						{roleOptions.map((option) => (
 							<option key={option.value} value={option.value}>
@@ -55,11 +56,12 @@ const FilterForm: React.FC = () => {
 				</div>
 
 				<div className={cls.filterGroup}>
-					<label>Сортировка:</label>
+					<label htmlFor="sortBy">Сортировка:</label>
 					<select
-						// value={sortBy}
+						value={sortBy}
 						onChange={handleSortChange}
 						className={cls.select}
+						id="sortBy"
 					>
 						<option value="name_asc">По имени (А-Я)</option>
 						<option value="name_desc">По имени (Я-А)</option>
@@ -76,8 +78,9 @@ const FilterForm: React.FC = () => {
 					<label>
 						<input
 							type="checkbox"
-							// checked={isArchive}
+							checked={isArchive}
 							onChange={handleArchiveChange}
+							id="filterArchive"
 						/>
 						<span>Показать архивных</span>
 					</label>
