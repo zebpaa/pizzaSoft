@@ -35,7 +35,7 @@
 }
 
 .select {
-	max-width: 400px;
+	max-width: 700px;
 	width: 100%;
 	padding: 0.5rem;
 	border: 1px solid #ddd;
@@ -56,12 +56,16 @@
 	}
 
 	input[type="checkbox"] {
-		width: 18px;
-		height: 18px;
+		width: 30px;
+		height: 30px;
 	}
 }
 
 @media (max-width: 1140px) {
+	.select {
+		max-width: 450px;
+	}
+
 	.content {
 		button {
 			font-size: 22px;
@@ -82,9 +86,20 @@
 	.filterForm {
 		font-size: 22px;
 	}
+
+	.checkboxGroup {
+		input[type="checkbox"] {
+			width: 22px;
+			height: 22px;
+		}
+	}
 }
 
 @media (max-width: 890px) {
+	.select {
+		max-width: 350px;
+	}
+
 	.content {
 		button {
 			font-size: 16px;
@@ -95,6 +110,13 @@
 	.filterForm {
 		font-size: 16px;
 		gap: 1rem;
+	}
+
+	.checkboxGroup {
+		input[type="checkbox"] {
+			width: 16px;
+			height: 16px;
+		}
 	}
 }
 
@@ -111,10 +133,18 @@
 		padding: 32px 18px 0px 18px;
 	}
 
-
 	.filterGroup {
 		gap: 0;
 	}
+
+	.filterForm {
+		font-size: 13px;
+	}
+
+	.checkboxGroup {
+		input[type="checkbox"] {
+			width: 13px;
+			height: 13px;
+		}
+	}
 }
-
-
